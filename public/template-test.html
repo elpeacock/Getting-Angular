@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="templateTest">
+<head>
+    <title>template test</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+    li:first-child {
+         font-style: italic;
+     }
+
+     li:last-child {
+         font-weight: bold;
+     }
+    </style>
+</head>
+<body>
+<div class="container">
+    
+    <ul>
+        <li ng-repeat="num in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]" ng-if="num % 3 !== 0">
+            {{ num }}
+        </li>
+        <!-- list items do respond to addtl css using ng-if -->
+    </ul>
+
+    <ul>
+        <li ng-repeat="num in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]" ng-show="num % 3 !== 0">
+            {{ num }}
+        </li>
+        <!-- list items don't respond to addtl css if ng-show -->
+    </ul>
+
+    <ul>
+        <li ng-repeat="num in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]" ng-hide="num % 3 == 0">
+            {{ num }}
+        </li>
+        <!-- list items don't respond to addtl css if ng-hide or ng-show -->
+    </ul>
+
+    <ul>
+        <li ng-repeat="letter in ['A', 'B', 'C', 'D', 'E', 'F']">
+            {{ letter | lowercase }}
+        </li>
+    </ul>
+
+    <ul>
+        <li ng-repeat="letter in ['A', 'B', 'C', 'D', 'E', 'F']">
+            {{ letter | uppercase }}
+        </li>
+    </ul>
+
+    <!-- puppy pics different ways! -->
+    <img ng-src="{{ '/img/puppy1.jpeg' }}" alt="puppies!">
+    <img ng-src="/img/{{ 'puppy2.jpeg' }}" alt="puppies!">
+    <img ng-src="/img/{{ 'puppy3' }}.jpeg" alt="puppies!">
+        
+</div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/angular.min.js"></script>
+    <script type="text/javascript" src="/js/templateTest.js"></script>
+</body>
+</html>
